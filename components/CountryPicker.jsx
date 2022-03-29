@@ -8,7 +8,6 @@ import {
 	Dimensions,
 	KeyboardAvoidingView,
 	Easing,
-	Modal,
 	Keyboard, TouchableOpacity,
 } from 'react-native';
 import {countryCodes} from '../constants/countryCodes';
@@ -134,7 +133,7 @@ export default function CountryPicker({
 	return (
 		<>
 			{!disableBackdrop && (
-				<Modal
+				<Animated.View
 					onStartShouldSetResponder={onBackdropPress}
 					style={[
 						{
@@ -142,8 +141,9 @@ export default function CountryPicker({
 							opacity: modalBackdropFade,
 							backgroundColor: 'rgba(116,116,116,0.45)',
 							position: 'absolute',
-							left: 0,
-							right: 0, bottom: 0, top: 0,
+							width: '100%',
+							height: '100%',
+							justifyContent: 'flex-end'
 						},
 						style?.backdrop
 					]}
